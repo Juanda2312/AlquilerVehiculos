@@ -37,12 +37,12 @@ import javafx.fxml.FXML;
  
      @FXML
      void reservasAction(ActionEvent event) {
- 
+        app.openGestionReserva();
      }
  
      @FXML
      void vehiculosActions(ActionEvent event) {
- 
+        app.openGestionVehiculos();
      }
  
      @FXML // This method is called by the FXMLLoader when initialization is complete

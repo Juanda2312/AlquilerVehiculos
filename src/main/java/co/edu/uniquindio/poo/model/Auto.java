@@ -2,18 +2,18 @@ package co.edu.uniquindio.poo.model;
 
 public class Auto extends Vehiculo{
     
-    private byte numeropuertas;
+    private Integer numeropuertas;
 
-    public Auto(String matricula, String marca, String modelo, String añofabricacion, byte numeropuertas){
+    public Auto(String matricula, String marca, String modelo, String añofabricacion, Integer puerta){
         super(matricula, marca, modelo, añofabricacion);
-        this.numeropuertas = numeropuertas;
+        this.numeropuertas = puerta;
     }
 
-    public byte getNumeropuertas() {
+    public Integer getNumeropuertas() {
         return numeropuertas;
     }
 
-    public void setNumeropuertas(byte numeropuertas) {
+    public void setNumeropuertas(Integer numeropuertas) {
         this.numeropuertas = numeropuertas;
     }
     

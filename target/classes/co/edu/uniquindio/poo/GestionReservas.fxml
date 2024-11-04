@@ -5,54 +5,57 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="719.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="719.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.Viewcontroller.GestionReservaController">
    <children>
-      <SplitPane dividerPositions="0.5" layoutX="5.0" layoutY="59.0" orientation="VERTICAL" prefHeight="656.0" prefWidth="716.0">
+      <SplitPane dividerPositions="0.5" layoutX="5.0" layoutY="59.0" orientation="VERTICAL" prefHeight="656.0" prefWidth="800.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="316.0" prefWidth="780.0">
                <children>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="365.0" prefWidth="712.0">
                      <children>
                         <Text layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Información de la reserva" />
-                        <Separator layoutY="29.0" prefHeight="8.0" prefWidth="712.0" />
+                        <Separator layoutY="29.0" prefHeight="8.0" prefWidth="798.0" />
                         <Text layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dias:" />
                         <TextField fx:id="txtdias" layoutX="46.0" layoutY="43.0" prefHeight="25.0" prefWidth="297.0" />
                         <Button fx:id="btnactualizarreserva" layoutX="14.0" layoutY="284.0" mnemonicParsing="false" onAction="#actualizarreservaAction" prefHeight="25.0" prefWidth="134.0" text="Actualizar Reserva" />
-                        <Button fx:id="btnagregarreserva" layoutX="564.0" layoutY="284.0" mnemonicParsing="false" onAction="#agregarreservaAction" prefHeight="25.0" prefWidth="134.0" text="Agregar Reserva" />
-                        <TableView fx:id="tblcliente" layoutX="5.0" layoutY="123.0" prefHeight="157.0" prefWidth="351.0">
+                        <Button fx:id="btnagregarreserva" layoutX="648.0" layoutY="285.0" mnemonicParsing="false" onAction="#agregarreservaAction" prefHeight="25.0" prefWidth="134.0" text="Agregar Reserva" />
+                        <TableView fx:id="tblcliente" layoutX="5.0" layoutY="123.0" prefHeight="157.0" prefWidth="385.0">
                           <columns>
                             <TableColumn fx:id="columnnombre" prefWidth="93.0" text="Nombre" />
-                            <TableColumn fx:id="columncedula" prefWidth="85.0" text="Cedula" />
-                              <TableColumn fx:id="columntelefono" prefWidth="83.0" text="Telefono" />
-                              <TableColumn fx:id="columncorreo" prefWidth="89.0" text="Correo" />
+                            <TableColumn fx:id="columncedula" prefWidth="93.0" text="Cedula" />
+                              <TableColumn fx:id="columntelefono" prefWidth="93.0" text="Telefono" />
+                              <TableColumn fx:id="columncorreo" prefWidth="105.0" text="Correo" />
                           </columns>
                         </TableView>
                         <Text layoutX="21.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente:" />
-                        <TableView fx:id="tblvehiculo" layoutX="356.0" layoutY="123.0" prefHeight="157.0" prefWidth="351.0">
+                        <TableView fx:id="tblvehiculo" layoutX="406.0" layoutY="124.0" prefHeight="157.0" prefWidth="385.0">
                            <columns>
                               <TableColumn fx:id="columnmatricula" prefWidth="75.0" text="Matricula" />
-                              <TableColumn fx:id="columnmarca" prefWidth="73.0" text="Marca" />
-                              <TableColumn fx:id="columnmodelo" prefWidth="85.0" text="Modelo" />
-                              <TableColumn fx:id="columnaño" prefWidth="117.0" text="Año de fabricación" />
+                              <TableColumn fx:id="columnmarca" prefWidth="97.0" text="Marca" />
+                              <TableColumn fx:id="columnmodelo" prefWidth="99.0" text="Modelo" />
+                              <TableColumn fx:id="columnanio" prefWidth="113.0" text="Año de fabricación" />
                            </columns>
                         </TableView>
-                        <Text layoutX="360.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehiculo:" />
+                        <Text layoutX="406.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehiculo:" />
+                        <Text layoutX="360.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" />
+                        <Label fx:id="txttotal" layoutX="394.0" layoutY="47.0" prefHeight="17.0" prefWidth="151.0" />
+                        <Button fx:id="btndesseleccionarcliente" layoutX="244.0" layoutY="93.0" mnemonicParsing="false" onAction="#deseleccionarclienteAction" text="Deseleccionar Cliente" />
+                        <Button fx:id="btndeseleccionarvehiculo" layoutX="646.0" layoutY="93.0" mnemonicParsing="false" onAction="#deseleccionarvehiculoAction" text="Deseleccionar Vehiculo" />
                      </children>
                   </AnchorPane>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TableView fx:id="tblreserva" prefHeight="276.0" prefWidth="714.0">
+                  <TableView fx:id="tblreserva" prefHeight="276.0" prefWidth="805.0">
                     <columns>
-                      <TableColumn fx:id="columndias" prefWidth="146.0" text="Dias" />
-                      <TableColumn fx:id="columnvehiculo" prefWidth="187.0" text="Vehiculo" />
-                        <TableColumn fx:id="columncliente" prefWidth="178.0" text="Cliente" />
-                        <TableColumn fx:id="columntotal" prefWidth="198.0" text="Total" />
+                      <TableColumn fx:id="columndias" prefWidth="92.0" text="Dias" />
+                      <TableColumn fx:id="columnvehiculo" prefWidth="255.0" text="Vehiculo" />
+                        <TableColumn fx:id="columncliente" prefWidth="247.0" text="Cliente" />
+                        <TableColumn fx:id="columntotal" prefWidth="202.0" text="Total" />
                     </columns>
                   </TableView>
-                  <Button fx:id="btneliminarreserva" layoutX="580.0" layoutY="285.0" mnemonicParsing="false" onAction="#eliminarreservaAction" prefHeight="25.0" prefWidth="134.0" text="Eliminar Reserva" />
+                  <Button fx:id="btneliminarreserva" layoutX="657.0" layoutY="285.0" mnemonicParsing="false" onAction="#eliminarreservaAction" prefHeight="25.0" prefWidth="134.0" text="Eliminar Reserva" />
                </children>
             </AnchorPane>
         </items>
@@ -62,6 +65,6 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Button fx:id="btnregresar" layoutX="587.0" layoutY="25.0" mnemonicParsing="false" onAction="#regresarAction" prefHeight="25.0" prefWidth="121.0" text="Regresar" />
+      <Button fx:id="btnregresar" layoutX="672.0" layoutY="24.0" mnemonicParsing="false" onAction="#regresarAction" prefHeight="25.0" prefWidth="121.0" text="Regresar" />
    </children>
 </AnchorPane>

@@ -4,14 +4,13 @@ package co.edu.uniquindio.poo.Viewcontroller;
  * Sample Skeleton for 'GestionClientes.fxml' Controller Class
  */
 
- import java.net.URL;
-import java.util.LinkedList;
+import java.net.URL;
+
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.app.App;
 import co.edu.uniquindio.poo.controllers.ClienteController;
 import co.edu.uniquindio.poo.model.Cliente;
-import co.edu.uniquindio.poo.model.Reserva;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +21,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
 import javafx.scene.control.Alert.AlertType;
  
  public class GestionClientesController {
@@ -97,8 +95,6 @@ import javafx.scene.control.Alert.AlertType;
                 listclientes.add(cliente);
                 limpiarseleccion();
             }
-        }else{
-            mostrarmensaje("Creación de cliente", "Agregar Cliente", "Llene los datos correctamente", AlertType.WARNING);
         }
      }
      
@@ -121,14 +117,16 @@ import javafx.scene.control.Alert.AlertType;
      void ActualizarClienteAction(ActionEvent event) {
         Cliente clienteseleccionado = tblcliente.getSelectionModel().getSelectedItem();
         if (clienteseleccionado != null) {
-            String resultado = clientecontroller.ActualizarCliente(clienteseleccionado, txtnombre.getText(), txtcedula.getText(), txttelefono.getText(),txtcorreo.getText());
+            if (validarDatos(txtnombre.getText(), txtcedula.getText(), txttelefono.getText(),txtcorreo.getText())) {
+                String resultado = clientecontroller.ActualizarCliente(clienteseleccionado, txtnombre.getText(), txtcedula.getText(), txttelefono.getText(),txtcorreo.getText());
             mostrarmensaje("Actualización del cliente", "Actualizar cliente",resultado, AlertType.INFORMATION);
             if (resultado.equals("El cliente ha sido actualizado")) {
                 tblcliente.refresh();
                 limpiarseleccion();
             }
+            }
         }else{
-            mostrarmensaje("Eliminacion de cliente", "Eliminar cliente","Seleccione un cliente en la tabla", AlertType.WARNING);
+            mostrarmensaje("Actualización del cliente", "Actualizar cliente","Seleccione un cliente en la tabla", AlertType.WARNING);
         }
      }
      
@@ -140,20 +138,8 @@ import javafx.scene.control.Alert.AlertType;
      }
 
      public boolean validarDatos(String nombre,String cedula,String telefono, String correo){
-        if (nombre.isEmpty()){
-            txtnombre.setTooltip(new Tooltip("Llene el nombre"));
-            return false;
-        }
-        if (cedula.isEmpty()){
-            txtcedula.setTooltip(new Tooltip("Llene la cedula"));
-            return false;
-        }
-        if (telefono.isEmpty()) {
-            txttelefono.setTooltip(new Tooltip("Llene el telefono"));
-            return false;
-        }
-        if (correo.isEmpty()){
-            txtcorreo.setTooltip(new Tooltip("Llene el correo"));
+        if (nombre.isEmpty()||cedula.isEmpty()||telefono.isEmpty()||correo.isEmpty()){
+            mostrarmensaje("Error", "Datos incompletos", "Rellene los datos correctamente", AlertType.WARNING);
             return false;
         }
         return true;
@@ -189,13 +175,13 @@ import javafx.scene.control.Alert.AlertType;
         alert.setContentText(contenido);
         alert.showAndWait();
      }
+
      private void initView(){
         initDataBinding();
         obtenerClientes();
         tblcliente.getItems().clear();
         tblcliente.setItems(listclientes);
         listenerSelection();
-
      }
      
      private void initDataBinding() {
@@ -203,7 +189,11 @@ import javafx.scene.control.Alert.AlertType;
         columncedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
         columntelefono.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTelefono()));
         columncorreo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCorreo()));
-        columnreservas.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getListareservas().toString()));
+        columnreservas.setCellValueFactory(cellData -> {if (cellData.getValue().getListareservas().isEmpty()) {
+            return new SimpleStringProperty("No tiene reservas");
+        }else{
+            return new SimpleStringProperty(cellData.getValue().getListareservas().toString());
+        }});
         // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
     private void obtenerClientes(){

@@ -100,7 +100,7 @@ public class Empresa {
 
     public Vehiculo BuscarVehiculo(Vehiculo vehiculo){
         Vehiculo vehiculoaux = null;
-        if (vehiculo != null && listavehiculos.contains(vehiculo)) {
+        if (listavehiculos.contains(vehiculo)) {
             vehiculoaux = vehiculo;
         }
         return vehiculoaux;
@@ -118,6 +118,31 @@ public class Empresa {
         return respuesta;
     }
 
+    public String ActualizarVehiculo(Vehiculo vehiculo, String matricula, String marca, String modelo, String año, Integer puerta, Caja caja, Float carga){
+        String respuesta = "No se ha podido actualizar";
+        if (vehiculo != null) {
+            Vehiculo vehiculoaux = BuscarVehiculo(vehiculo);
+            if (vehiculoaux != null) {
+                int index = listavehiculos.indexOf(vehiculo);
+                vehiculoaux = listavehiculos.get(index);
+                vehiculoaux.setMatricula(matricula);
+                vehiculoaux.setMarca(marca);
+                vehiculoaux.setModelo(modelo);
+                vehiculoaux.setAñofabricacion(año);
+                if (vehiculoaux instanceof Auto) {
+                    ((Auto) vehiculoaux).setNumeropuertas(puerta);
+                }
+                if (vehiculoaux instanceof Moto) {
+                    ((Moto)vehiculoaux).setCaja(caja);
+                }
+                if (vehiculoaux instanceof Camioneta) {
+                    ((Camioneta)vehiculoaux).setCarga(carga);
+                }
+                respuesta = "El vehiculo ha sido actualizado";
+            }
+        }
+        return respuesta;
+    }
 
     public String AgregarReserva(Reserva reserva){
         String respuesta = "No se ha podido agregar";

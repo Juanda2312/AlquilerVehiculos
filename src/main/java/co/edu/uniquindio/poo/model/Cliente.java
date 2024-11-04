@@ -125,6 +125,13 @@ public class Cliente {
         }
         return respuesta;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente [nombre=" + nombre + ", cedula=" + cedula + "]";
+    }
+
+
 }
 
     
