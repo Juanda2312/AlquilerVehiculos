@@ -75,7 +75,7 @@ public class Empresa {
             if (clienteaux != null){
                 int index = listaclientes.indexOf(cliente);
                 Cliente cliente2 = listaclientes.get(index);
-                cliente2.setCedula(nombre);
+                cliente2.setNombre(nombre);
                 cliente2.setCedula(cedula);
                 cliente2.setTelefono(telefono);
                 cliente2.setCorreo(correo);

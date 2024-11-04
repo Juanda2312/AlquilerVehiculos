@@ -5,8 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.Viewcontroller.GestionClientesController">
    <children>
       <SplitPane dividerPositions="0.5" layoutX="17.0" layoutY="50.0" orientation="VERTICAL" prefHeight="511.0" prefWidth="491.0">
         <items>
@@ -14,15 +13,16 @@
                <children>
                   <Label layoutX="14.0" layoutY="6.0" text="Información del Cliente" />
                   <Separator layoutY="25.0" prefHeight="0.0" prefWidth="489.0" />
-                  <Label layoutX="8.0" layoutY="28.0" text="Nombre" />
+                  <Label layoutX="10.0" layoutY="37.0" text="Nombre:" />
                   <Label layoutX="12.0" layoutY="72.0" text="Cedula:" />
                   <Label layoutX="7.0" layoutY="115.0" text="Telefono:" />
                   <Label layoutX="12.0" layoutY="165.0" text="Correo:" />
-                  <TextField fx:id="txtnombre" layoutX="64.0" layoutY="24.0" prefHeight="25.0" prefWidth="423.0" />
-                  <TextField fx:id="rxtcedula" layoutX="64.0" layoutY="68.0" prefHeight="25.0" prefWidth="423.0" />
+                  <TextField fx:id="txtnombre" layoutX="64.0" layoutY="33.0" prefHeight="25.0" prefWidth="423.0" />
+                  <TextField fx:id="txtcedula" layoutX="64.0" layoutY="68.0" prefHeight="25.0" prefWidth="423.0" />
                   <TextField fx:id="txttelefono" layoutX="64.0" layoutY="111.0" prefHeight="25.0" prefWidth="423.0" />
                   <TextField fx:id="txtcorreo" layoutX="64.0" layoutY="161.0" prefHeight="25.0" prefWidth="423.0" />
-                  <Button fx:id="btnagregarcliente" layoutX="177.0" layoutY="204.0" mnemonicParsing="false" onAction="#AgregarClienteAction" text="Agregar Cliente" />
+                  <Button fx:id="btnagregarcliente" layoutX="376.0" layoutY="201.0" mnemonicParsing="false" onAction="#AgregarClienteAction" text="Agregar Cliente" />
+                  <Button fx:id="btnActualizarCliente" layoutX="18.0" layoutY="201.0" mnemonicParsing="false" onAction="#ActualizarClienteAction" prefHeight="25.0" prefWidth="117.0" text="Actualizar Cliente" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="154.0" prefWidth="489.0">
@@ -45,5 +45,6 @@
             <Font size="25.0" />
          </font>
       </Label>
+      <Button fx:id="btnregresar" layoutX="384.0" layoutY="20.0" mnemonicParsing="false" onAction="#RegresarAction" prefHeight="25.0" prefWidth="124.0" text="Regresar" />
    </children>
 </AnchorPane>
