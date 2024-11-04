@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.5" layoutX="17.0" layoutY="50.0" orientation="VERTICAL" prefHeight="511.0" prefWidth="491.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="6.0" text="Información del Cliente" />
+                  <Separator layoutY="25.0" prefHeight="0.0" prefWidth="489.0" />
+                  <Label layoutX="8.0" layoutY="28.0" text="Nombre" />
+                  <Label layoutX="12.0" layoutY="72.0" text="Cedula:" />
+                  <Label layoutX="7.0" layoutY="115.0" text="Telefono:" />
+                  <Label layoutX="12.0" layoutY="165.0" text="Correo:" />
+                  <TextField fx:id="txtnombre" layoutX="64.0" layoutY="24.0" prefHeight="25.0" prefWidth="423.0" />
+                  <TextField fx:id="rxtcedula" layoutX="64.0" layoutY="68.0" prefHeight="25.0" prefWidth="423.0" />
+                  <TextField fx:id="txttelefono" layoutX="64.0" layoutY="111.0" prefHeight="25.0" prefWidth="423.0" />
+                  <TextField fx:id="txtcorreo" layoutX="64.0" layoutY="161.0" prefHeight="25.0" prefWidth="423.0" />
+                  <Button fx:id="btnagregarcliente" layoutX="177.0" layoutY="204.0" mnemonicParsing="false" onAction="#AgregarClienteAction" text="Agregar Cliente" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="154.0" prefWidth="489.0">
+               <children>
+                  <TableView fx:id="tblcliente" prefHeight="195.0" prefWidth="489.0" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="columnnombre" prefWidth="97.0" text="Nombre" />
+                      <TableColumn fx:id="columncedula" prefWidth="86.0" text="Cedula" />
+                        <TableColumn fx:id="columntelefono" prefWidth="147.0" text="Telefono" />
+                        <TableColumn fx:id="columncorreo" prefWidth="160.0" text="Correo" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="btneliminarcliente" layoutX="376.0" layoutY="212.0" mnemonicParsing="false" onAction="#EliminarClienteAction" text="Eliminar Cliente" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Label layoutX="20.0" layoutY="14.0" text="Gestión De Clientes">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
