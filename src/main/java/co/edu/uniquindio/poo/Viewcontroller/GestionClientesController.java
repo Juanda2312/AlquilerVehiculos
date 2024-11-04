@@ -5,12 +5,13 @@ package co.edu.uniquindio.poo.Viewcontroller;
  */
 
  import java.net.URL;
- import java.util.ResourceBundle;
+import java.util.LinkedList;
+import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.app.App;
 import co.edu.uniquindio.poo.controllers.ClienteController;
 import co.edu.uniquindio.poo.model.Cliente;
-import javafx.beans.Observable;
+import co.edu.uniquindio.poo.model.Reserva;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -60,6 +61,9 @@ import javafx.scene.control.Alert.AlertType;
  
      @FXML // fx:id="columnnombre"
      private TableColumn<Cliente, String> columnnombre; // Value injected by FXMLLoader
+
+     @FXML // fx:id="columnreservas"
+    private TableColumn<Cliente, String> columnreservas; // Value injected by FXMLLoader
  
      @FXML // fx:id="txtcedula"
      private TextField txtcedula; // Value injected by FXMLLoader
@@ -170,6 +174,7 @@ import javafx.scene.control.Alert.AlertType;
          assert btnregresar != null : "fx:id=\"btnregresar\" was not injected: check your FXML file 'GestionClientes.fxml'.";
          assert columntelefono != null : "fx:id=\"columntelefono\" was not injected: check your FXML file 'GestionClientes.fxml'.";
          assert columnnombre != null : "fx:id=\"columnnombre\" was not injected: check your FXML file 'GestionClientes.fxml'.";
+         assert columnreservas != null : "fx:id=\"columnreservas\" was not injected: check your FXML file 'GestionClientes.fxml'.";
          assert txtcedula != null : "fx:id=\"rxtcedula\" was not injected: check your FXML file 'GestionClientes.fxml'.";
          assert tblcliente != null : "fx:id=\"tblcliente\" was not injected: check your FXML file 'GestionClientes.fxml'.";
          assert txttelefono != null : "fx:id=\"txttelefono\" was not injected: check your FXML file 'GestionClientes.fxml'.";
@@ -198,6 +203,7 @@ import javafx.scene.control.Alert.AlertType;
         columncedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
         columntelefono.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTelefono()));
         columncorreo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCorreo()));
+        columnreservas.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getListareservas().toString()));
         // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
     private void obtenerClientes(){

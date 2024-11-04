@@ -11,7 +11,6 @@ public class Reserva {
         this.vehiculo = vehiculo;
         this.dias = dias;
         this.total = CalcularTotal();
-        cliente.AgregarReserva(this);
     }
 
     public int getDias() {

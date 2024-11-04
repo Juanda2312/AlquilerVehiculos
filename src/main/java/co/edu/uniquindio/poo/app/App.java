@@ -7,7 +7,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-import javax.swing.JOptionPane;
 
 import co.edu.uniquindio.poo.Viewcontroller.GestionClientesController;
 import co.edu.uniquindio.poo.Viewcontroller.PaginaPrincipalController;
