@@ -1,10 +1,10 @@
 package co.edu.uniquindio.poo.model;
 
-public class Auto extends Vehiculo{
-    
+public class Auto extends Vehiculo {
+
     private Integer numeropuertas;
 
-    public Auto(String matricula, String marca, String modelo, String añofabricacion, Integer puerta){
+    public Auto(String matricula, String marca, String modelo, String añofabricacion, Integer puerta) {
         super(matricula, marca, modelo, añofabricacion);
         this.numeropuertas = puerta;
     }
@@ -16,10 +16,13 @@ public class Auto extends Vehiculo{
     public void setNumeropuertas(Integer numeropuertas) {
         this.numeropuertas = numeropuertas;
     }
-    
-    public float CalcularCosto(int dias){
+
+    /**
+     * El costo es una tarifa fija de 10000 multiplicado con por días
+     */
+    public float CalcularCosto(int dias) {
         float costo = 0;
-        costo += 10000 * dias;
+        costo += 10000 * dias;// costo
         return costo;
     }
 }

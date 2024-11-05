@@ -10,25 +10,31 @@ import co.edu.uniquindio.poo.model.Vehiculo;
 public class ReservaController {
     Empresa empresa;
 
-    public ReservaController(Empresa empresa){
+    public ReservaController(Empresa empresa) {
         this.empresa = empresa;
     }
-    public Collection<Reserva> obtenerReservas(){
+
+    public Collection<Reserva> obtenerReservas() {
         return empresa.getListareservas();
     }
-    public Collection<Vehiculo> obtenerVehiculos(){
+
+    public Collection<Vehiculo> obtenerVehiculos() {
         return empresa.getListavehiculos();
     }
-    public Collection<Cliente> ObtenerClientes(){
+
+    public Collection<Cliente> ObtenerClientes() {
         return empresa.getListaclientes();
     }
-    public String Agregarreserva(Reserva reserva){
+
+    public String Agregarreserva(Reserva reserva) {
         return empresa.AgregarReserva(reserva);
     }
-    public String Eliminarreserva(Reserva reserva){
+
+    public String Eliminarreserva(Reserva reserva) {
         return empresa.EliminarReserva(reserva);
     }
-    public String Actualizarreserva(Reserva reserva, Cliente cliente, Vehiculo vehiculo, int dias){
+
+    public String Actualizarreserva(Reserva reserva, Cliente cliente, Vehiculo vehiculo, int dias) {
         return empresa.ActualizarReserva(reserva, cliente, vehiculo, dias);
     }
 }

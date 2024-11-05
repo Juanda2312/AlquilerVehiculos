@@ -10,7 +10,7 @@ public class Cliente {
     private String correo;
     private LinkedList<Reserva> listareservas;
 
-    public Cliente(String nombre,String cedula, String telefono, String correo){
+    public Cliente(String nombre, String cedula, String telefono, String correo) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.telefono = telefono;
@@ -62,6 +62,9 @@ public class Cliente {
         return result;
     }
 
+    /**
+     * Compara si la cedula de dos clientes es igual
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -78,11 +81,18 @@ public class Cliente {
             return false;
         return true;
     }
-    public String AgregarReserva(Reserva reserva){
+
+    /**
+     * Agrega una reserva a la lista de reservas siempre y cuando esta no exista
+     * 
+     * @param reserva
+     * @return un mensaje indicando si se agregó o no se pudo agregar
+     */
+    public String AgregarReserva(Reserva reserva) {
         String respuesta = "No se ha podido agregar";
-        if (reserva!=null) {
+        if (reserva != null) {
             Reserva reservaaux = BuscarReserva(reserva);
-            if (reservaaux==null){
+            if (reservaaux == null) {
                 listareservas.add(reserva);
                 respuesta = "La reserva ha sido agregada";
             }
@@ -90,7 +100,13 @@ public class Cliente {
         return respuesta;
     }
 
-    public Reserva BuscarReserva(Reserva reserva){
+    /**
+     * Busca una reserva en la lista de reservas
+     * 
+     * @param reserva
+     * @return la reserva si es encontrada o null si no se encuentra
+     */
+    public Reserva BuscarReserva(Reserva reserva) {
         Reserva reservaaux = null;
         if (reserva != null && listareservas.contains(reserva)) {
             reservaaux = reserva;
@@ -98,7 +114,13 @@ public class Cliente {
         return reservaaux;
     }
 
-    public String EliminarReserva(Reserva reserva){
+    /**
+     * Se elimina una reserva de la lista siempre y cuando esta exista
+     * 
+     * @param reserva
+     * @return un mensaje indicando si se eliminó o no se pudo eliminar
+     */
+    public String EliminarReserva(Reserva reserva) {
         String respuesta = "No se pudo eliminar";
         if (reserva != null) {
             Reserva reservaaux = BuscarReserva(reserva);
@@ -110,7 +132,16 @@ public class Cliente {
         return respuesta;
     }
 
-    public String ActualizarReserva(Reserva reserva, Cliente cliente, Vehiculo vehiculo, int dias){
+    /**
+     * Actualiza una reserva siempre y cuando esta exista
+     * 
+     * @param reserva
+     * @param cliente
+     * @param vehiculo
+     * @param dias
+     * @return un mensaje indicando si se pudo actualizar o no
+     */
+    public String ActualizarReserva(Reserva reserva, Cliente cliente, Vehiculo vehiculo, int dias) {
         String respuesta = "No se ha podido actualizar";
         if (reserva != null) {
             Reserva reservaaux = BuscarReserva(reserva);
@@ -126,13 +157,12 @@ public class Cliente {
         return respuesta;
     }
 
+    /**
+     * Convierte el cliente a string indicando el nombre y la cedula
+     */
     @Override
     public String toString() {
         return "Cliente [nombre=" + nombre + ", cedula=" + cedula + "]";
     }
 
-
 }
-
-    
-

@@ -6,7 +6,7 @@ public class Reserva {
     private Cliente cliente;
     private Vehiculo vehiculo;
 
-    public Reserva(Cliente cliente, Vehiculo vehiculo, int dias){
+    public Reserva(Cliente cliente, Vehiculo vehiculo, int dias) {
         this.cliente = cliente;
         this.vehiculo = vehiculo;
         this.dias = dias;
@@ -39,12 +39,18 @@ public class Reserva {
         this.vehiculo = vehiculo;
         this.total = CalcularTotal();
     }
-    
+
     public float getTotal() {
         return total;
     }
-    
-    public float CalcularTotal(){
+
+    /**
+     * le indica al vehiculo que calcule su total, este total varia dependiendo del
+     * tipo de vehiculo
+     * 
+     * @return un float con el total
+     */
+    public float CalcularTotal() {
         float totalaux = vehiculo.CalcularCosto(dias);
         return totalaux;
     }
@@ -59,6 +65,10 @@ public class Reserva {
         return result;
     }
 
+    /**
+     * verifica si una reserva es igual a otra con su cantidad de dias, cliente y
+     * vehiculo
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -83,10 +93,12 @@ public class Reserva {
         return true;
     }
 
+    /**
+     * Convierte la reserva a String indicando los dias y el total
+     */
     @Override
     public String toString() {
         return "Reserva [dias=" + dias + ", total=" + total + "]";
     }
-    
 
 }

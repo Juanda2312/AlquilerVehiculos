@@ -1,12 +1,12 @@
 package co.edu.uniquindio.poo.model;
 
-public abstract class Vehiculo {
+public abstract class Vehiculo {// Clase abstracta vehiculo
     private String matricula;
     private String marca;
     private String modelo;
     private String añofabricacion;
 
-    public Vehiculo(String matricula, String marca, String modelo, String añofabricacion){
+    public Vehiculo(String matricula, String marca, String modelo, String añofabricacion) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
@@ -44,7 +44,13 @@ public abstract class Vehiculo {
     public void setAñofabricacion(String añofabricacion) {
         this.añofabricacion = añofabricacion;
     }
-    
+
+    /**
+     * Calcula el costo dependiendo del tipo de vehiculo
+     * 
+     * @param dias
+     * @return un float con el costo
+     */
     public abstract float CalcularCosto(int dias);
 
     @Override
@@ -55,6 +61,9 @@ public abstract class Vehiculo {
         return result;
     }
 
+    /**
+     * Verifica si un vehiculo es igual a otro a partir de su matricula
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -72,9 +81,12 @@ public abstract class Vehiculo {
         return true;
     }
 
+    /**
+     * convierte el vehiculo a string indicando solamente la matricula
+     */
     @Override
     public String toString() {
         return "Vehiculo [matricula=" + matricula + "]";
     }
-    
+
 }
